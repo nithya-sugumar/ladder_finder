@@ -1,0 +1,253 @@
+<html>
+    <head>
+        <title>
+           Ladder
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h4 style="color:rgb(240, 21, 21);padding-left: 40%; margin-top:3%;">Ladder Finder</h4>
+            <p style="padding-left:35%;">Using Html,css,javascript(onkeypress,onchange)</p>
+
+        </div>
+        
+            <div class="row" style="margin:10px;">
+          <div class="col-4" style="border-style:solid;">
+          <svg height="450" width="600">
+               <line x1="10" y1="400" x2="340" y2="400" id="aline" style="stroke:black;stroke-width:2;"/>/*bottom-line*/
+        
+               <rect x="10" y="82" width="140" height="10" style="fill:gray;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top first gray rectangle*/
+        
+               <rect x="155" y="82" width="140" height="10" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top second white rectangle*/
+               <rect x="170" y="42" width="100" height="10" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top second above first rec*/
+               <rect x="160" y="55" width="130" height="10" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top second above second rec*/
+               <rect x="160" y="68" width="130" height="10" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top second above third rec*/
+             <rect x="100" y="180" width="128" height="10" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*center rect */
+             <rect x="100" y="180" width="10" height="100" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*center rect */
+             <rect x="175" y="100" width="10" height="70" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*center rect */
+             <rect x="130" y="100" width="10" height="80" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; transform: skewX(26deg); stroke-opacity:0.6"/> /*center rect slanting*/
+        
+             <rect x="330" y="100" width="10" height="90" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; transform: skewX(333deg); stroke-opacity:0.6"/> /*center rect slanting after thick line*/
+        
+         <line x1="220" y1="82" x2="230" y2="120" id="aline" style="stroke:black;stroke-width:2;"/> /* angle line first*/
+         <line x1="230" y1="120" x2="265" y2="130" id="aline" style="stroke:black;stroke-width:2;"/> /* angle line second*/
+        
+               <rect x="300" y="82" width="42" height="10" style="fill:gray;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top third gray rectangle*/
+        
+               <rect x="315" y="95" width="10" height="305" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; transform: skewX(333deg); stroke-opacity:0.6"/> /*Slanting line on center*/
+        
+              <line x1="60" y1="20" x2="10" y2="75" id="aline" style="stroke:gray;stroke-width:6;"/> /*top-left slanting */
+               <line x1="298" y1="98" x2="295" y2="390" onkeyup="linefloorfunction()" id="flrtoclng" style="stroke:black;stroke-width:2;"/> /*right side floor to ceiling height*/
+               <text x="320" y="180" fill="black" id="textfloorheight" style="writing-mode: vertical-lr; font-size: 10px;">Floor to Ceiling Height</text>
+        
+                <line x1="50" y1="40" x2="150" y2="40" id="top_hrztal_clr_line" style="stroke:black;stroke-width:2;"/> /*top Horizontal Clearance*/
+                <text x="40" y="60" fill="black" id="text_hrztal_clr" style="font-size: 10px;">Horizontal Clearance</text>
+        
+                <line x1="298" y1="30" x2="298" y2="80" id="line_vertical" style="stroke:black;stroke-width:2;"/> /*top right vertical clearance*/
+               <text x="320" y="26" fill="black" id="text_line_vertical"
+                     style="writing-mode: tb-rl; font-size: 10px;">
+                 Vertical
+               </text>
+             <text x="310" y="26" fill="black" id="text_line_vertical_clr" style="writing-mode: vertical-lr; font-size: 10px;">
+                Clearance
+               </text>
+               /*fold ladder step start*/
+        
+               <line x1="175" y1="140" x2="185" y2="140" id="aline" style="stroke:gray;stroke-width:2;"/> /* slanting ladder vert one step only step */
+        
+        
+               <line x1="210" y1="165" x2="220" y2="165" id="aline" style="stroke:gray;stroke-width:2;"/> /* slanting ladder last step */
+               <line x1="189" y1="120" x2="200" y2="120" id="aline" style="stroke:gray;stroke-width:2;"/> /* slanting ladder last step */
+        
+               <line x1="100" y1="210" x2="110" y2="210" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder last before step */
+        
+               <line x1="200" y1="180" x2="200" y2="190" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder hori from first step */
+               <line x1="170" y1="180" x2="170" y2="190" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder hori from second step */
+               <line x1="140" y1="180" x2="140" y2="190" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder hori from third step */
+        
+               <line x1="100" y1="250" x2="110" y2="250" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder last step */
+        
+          /*fold ladder step end*/
+          /*top ladder step start*/
+          <line x1="190" y1="42" x2="190" y2="52" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top first ladder 1 step */
+        <line x1="220" y1="42" x2="220" y2="52" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top first ladder 2 step */
+        <line x1="250" y1="42" x2="250" y2="52" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top first ladder 3 step */
+        /*top ladder step end*/
+          /*top ladder second start*/
+           <line x1="175" y1="55" x2="175" y2="65" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top second ladder 1 step */
+           <line x1="200" y1="55" x2="200" y2="65" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top second ladder 2 step */
+           <line x1="240" y1="55" x2="240" y2="65" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top second ladder 3 step */
+           <line x1="280" y1="55" x2="280" y2="65" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top second ladder 4 step */
+           /*top ladder second end*/
+          /* top ladder third start*/
+          <line x1="180" y1="68" x2="180" y2="78" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top third ladder 1 step */
+          <line x1="220" y1="68" x2="220" y2="78" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top third ladder 2 step */
+          <line x1="260" y1="68" x2="260" y2="78" id="aline" style="stroke:gray;stroke-width:2;"/> /* straight ladder top third ladder 3 step */
+          /* top ladder third end*/
+        
+        
+               /*step in ladder start*/
+               <line x1="264" y1="100" x2="275" y2="100" id="aline" style="stroke:gray;stroke-width:2;"/> /* 1 step */
+               <line x1="243" y1="140" x2="254" y2="140" id="aline" style="stroke:gray;stroke-width:2;"/> /* 2 step */
+               <line x1="225" y1="180" x2="235" y2="180" id="aline" style="stroke:gray;stroke-width:2;"/> /* 3 step */
+               <line x1="202" y1="220" x2="212" y2="220" id="aline" style="stroke:gray;stroke-width:2;"/> /* 4 step */
+               <line x1="182" y1="260" x2="192" y2="260" id="aline" style="stroke:gray;stroke-width:2;"/> /* 5 step */
+               <line x1="162" y1="300" x2="172" y2="300" id="aline" style="stroke:gray;stroke-width:2;"/> /* 6 step */
+               <line x1="140" y1="345" x2="150" y2="345" id="aline" style="stroke:gray;stroke-width:2;"/>/* 7 step */
+               <line x1="122" y1="380" x2="132" y2="380" id="aline" style="stroke:gray;stroke-width:2;"/> /* 8 last step */
+        
+               /*step in ladder end*/
+        
+        
+               <line x1="200" y1="420" x2="320" y2="420" id="aline" style="stroke:black;stroke-width:2;"/> /*Landing Space*/
+               <text x="210" y="430" fill="black" onchange="linefunction()" id="textaline" style="font-size: 12px;">Landing Space</text>
+        
+               <line x1="150" y1="320" x2="320" y2="320" id="fold_swing" onchange="linefoldswing()" style="stroke:black;stroke-width:2;"/> /*Folding Swing Clearance*/
+               <text x="170" y="310" fill="black" id="text_fold_swing" style="font-size: 10px;">Folding Swing Clearance</text>
+          </svg>
+          </div>
+        
+          <div class="col-4" style="border-style:solid; margin-left:10px; margin-top:10px;">
+          <svg height="550" width="600"> /*second div */
+                  <rect x="5" y="140" width="180" height="10" style="fill:gray;stroke:gray;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top first gray rectangle*/
+        
+                <rect x="188" y="140" width="138" height="10" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top second white rectangle*/
+        
+                <rect x="331" y="140" width="15" height="10" style="fill:gray;stroke:black;stroke-width:2;fill-opacity:0.4; stroke-opacity:0.6"/> /*top third gray rectangle*/
+        
+                <line x1="50" y1="80" x2="2" y2="140" id="aline" style="stroke:gray;stroke-width:6;"/> /*top-left slanting */
+        
+                <line x1="328" y1="20" x2="328" y2="138" id="line_vertical" style="stroke:black;stroke-width:2;"/> /*top right vertical clearance*/
+        
+                <line x1="50" y1="170" x2="200" y2="170" id="top_hrztal_clr_line" style="stroke:black;stroke-width:2;"/> /*top Horizontal Clearance*/
+                <text x="70" y="165" fill="black" id="text_hrztal_clr" style="font-size: 10px;">Horizontal Clearance</text>
+        
+                <rect x="158" y="90" width="10" height="260" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; transform: skewX(21deg); stroke-opacity:0.6"/> /*Slanting line on center*/
+        
+                <rect x="204" y="290" width="10" height="100" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; transform: skewX(16deg); stroke-opacity:0.6"/> /*Slanting line on center small*/
+        
+                <line x1="329" y1="150" x2="329" y2="390" onkeyup="floortofloorfunction()" id="flrtoflr" style="stroke:black;stroke-width:2;"/> /*right side floor to floor height*/
+               <text x="339" y="225" fill="black" id="textfloortofloor" style="writing-mode: vertical-lr; font-size: 10px;">Floor to Floor Height</text>
+        
+               <rect x="140" y="155" width="10" height="120" style="fill:white;stroke:black;stroke-width:2;fill-opacity:0.4; transform: skewX(22deg); stroke-opacity:0.6"/> /*center rect slanting before thick line*/
+        
+               <text x="340" y="50" fill="black" id="text_line_vertical"
+                     style="writing-mode: tb-rl; font-size: 10px;">
+                 Vertical
+               </text>
+             <text x="333" y="55" fill="black" id="text_line_vertical_clr" style="writing-mode: vertical-lr; font-size: 10px;">
+                Clearance
+               </text>
+        
+               /*step in ladder start*/
+               <line x1="196" y1="100" x2="207" y2="100" id="aline" style="stroke:gray;stroke-width:2;"/> /* 1 step on top */
+               <line x1="205" y1="120" x2="215" y2="120" id="aline" style="stroke:gray;stroke-width:2;"/> /* 2 step */
+               <line x1="212" y1="145" x2="225" y2="145" id="aline" style="stroke:gray;stroke-width:2;"/> /* 3 step */
+               <line x1="222" y1="170" x2="234" y2="170" id="aline" style="stroke:gray;stroke-width:2;"/> /* 4 step */
+               <line x1="234" y1="200" x2="244" y2="200" id="aline" style="stroke:gray;stroke-width:2;"/> /* 5 step */
+               <line x1="247" y1="240" x2="261" y2="240" id="aline" style="stroke:gray;stroke-width:2;"/> /* 6 step */
+               <line x1="266" y1="280" x2="275" y2="280" id="aline" style="stroke:gray;stroke-width:2;"/> /* 7 step */
+               <line x1="280" y1="320" x2="290" y2="320" id="aline" style="stroke:gray;stroke-width:2;"/> /* 8 step */
+        <!--       <line x1="295" y1="360" x2="305" y2="360" id="aline" style="stroke:gray;stroke-width:2;"/> /* 9 step */-->
+               <line x1="300" y1="330" x2="308" y2="330" id="aline" style="stroke:gray;stroke-width:2;"/> /* next 10 step */
+               <line x1="310" y1="370" x2="322" y2="370" id="aline" style="stroke:gray;stroke-width:2;"/> /* next 11 step */
+               <line x1="320" y1="410" x2="331" y2="410" id="aline" style="stroke:gray;stroke-width:2;"/> /* next 12 step */
+                /* step in ladder end*/
+        
+        
+                <line x1="180" y1="410" x2="320" y2="410" style="stroke:black;stroke-width:2;"/> /*Landing Space*/
+               <text x="200" y="420" fill="black" onchange="linefunction()" id="textaline" style="font-size: 12px;">Landing Space</text>
+               <line x1="10" y1="390" x2="345" y2="390" id="aline" style="stroke:black;stroke-width:2;"/>/*bottom-line*/
+        </svg>
+          </div>
+            <div class="col-3" style="padding:2%; margin-left:60px;">
+                            <h6 style="text-algin:center;">Form</h6>
+                            <h6 style="text-algin:center;font-size:16px;">HEIGHT:</h6>
+                            <table style="font-size:12px;">
+          <tr><td>
+                          <label for="fname">Floor to Ceiling Height:</label>
+                        <input type="text" id="input_floor_to_ceil" name="fname" value="" onkeyup="linefloorfunction()" style="width:100px;"><br></br></input>
+              </td>
+              <td style="padding-left:20px;"><label for="fname">Floor to Floor Height:</label>
+                            <input type="text" id="input_floor_to_floor" name="fname" value="" onkeyup="floortofloorfunction()" style="width:100px;"><br></br></input>
+               </td></tr>
+                            <tr><td><h6 style="text-algin:center; font-size:16px; ">CLEARANCE:</h6></td></tr>
+        <tr>
+               <td>
+                       <label for="fname">Horizontal Clearance:</label>
+                    <input type="text" id="input_horizontal_clr" name="fname" value="" onkeyup="linehorizontalclr()" style="width:100px;"><br></br>					</input>
+             </td>
+             <td style="padding-left:30px;">	<label for="fname">Vertical Clearance:</label>
+                    <input type="text" id="input_vertical" name="fname" value="" onkeyup="lineverticalclr()" style="width:100px;"><br></br>					</input>
+              </td>
+            </tr>
+
+                           <tr><td><h6 style="text-algin:center; font-size:16px;">LOFT OPENING DIMENSIONS:</h6></td></tr>
+              <tr>
+                  <td><label for="fname">Max Swing Clearance:</label>
+                           <input type="text" id="input_swing" name="fname" value="" onchange="linefoldswing()" style="width:100px;"><br></br>					</input>
+                 </td>
+               </tr>
+               <tr>
+                    <td style="padding-top:10px;">
+                       <input type="submit" value="Submit" onclick="linefloorfunction();"></input>
+                    </td>
+                 </tr>
+                  </table>
+                            <script>
+                            document.getElementById("input_floor_to_ceil").onkeyup = function() {linefloorfunction()};
+                            document.getElementById("input_horizontal_clr").onkeyup = function() {linehorizontalclr()};
+                            document.getElementById("input_vertical").onkeyup = function() {lineverticalclr()};
+                            document.getElementById("input_swing").onchange = function() {linefoldswing()};
+                            document.getElementById("input_floor_to_floor").onkeyup = function() {floortofloorfunction()};
+        
+                               function linefloorfunction() {
+                               var y=document.getElementById("flrtoclng");
+                               var b = document.getElementById("input_floor_to_ceil").value;
+                               y.setAttribute('y1', b);
+                               document.getElementById("textfloorheight").innerHTML=b;
+                               document.getElementById("textfloorheight").style = "none";
+        
+                             }
+        
+                             function floortofloorfunction() {
+                               var y=document.getElementById("flrtoflr");
+                               var b = document.getElementById("input_floor_to_floor").value;
+                               y.setAttribute('y1', b);
+                               document.getElementById("textfloortofloor").innerHTML=b;
+                               document.getElementById("textfloortofloor").style = "none";
+        
+                             }
+        
+                             function linehorizontalclr() {
+                               var y=document.getElementById("top_hrztal_clr_line");
+                               var b = document.getElementById("input_horizontal_clr").value;
+                               y.setAttribute('x2', b);
+                               document.getElementById("text_hrztal_clr").innerHTML =b;
+                             }
+                             function lineverticalclr() {
+                               var y=document.getElementById("line_vertical");
+                               var b = document.getElementById("input_vertical").value;
+                               y.setAttribute('y1', b);
+                               document.getElementById("text_line_vertical").innerHTML =b;
+                               document.getElementById("text_line_vertical_clr").style.display = "none";
+                             }
+                             function linefoldswing() {
+                               var y=document.getElementById("fold_swing");
+                               var b = document.getElementById("input_swing").value;
+                               y.setAttribute('x2', b);
+                               document.getElementById("text_fold_swing").innerHTML =b;
+        
+                             }
+                 </script>
+     
+         </div>
+        </div>
+           
+    </div>
+    
+</body>
+</html>
